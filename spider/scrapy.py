@@ -41,3 +41,10 @@ class RandomUserAgentMiddleware():
     def process_response(self,request,response,spider):
         response.status=8888
         return response
+      
+      
+      
+      
+##Item Pipeline 的用法
+处理item的组件，清理HTML数据，验证爬取数据的正确性，查重，将爬取的item处理（保存数据库，保存文本）
+##使用方法
