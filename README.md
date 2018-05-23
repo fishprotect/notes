@@ -1,2 +1,2 @@
 # notes
-some notes
+学习笔记
