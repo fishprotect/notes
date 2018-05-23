@@ -26,3 +26,18 @@
 1 process_request(request,spider)
 2 process_response(requests,response,spider)
 3 process_exception(requests，exception,spider)
+eg:
+下面是一个改写user-agent和改写状态（status）的Middleware
+import random
+class RandomUserAgentMiddleware():
+    def __init__(self):
+        self.user_agent = [
+            'Mozilla/5.0/protectfish1',
+            'Mozilla/5.0 (Windows NT 5.1; rv:5.0) Gecko/20100101 Firefox/5.0',
+            'Mozilla/5.0/peotectfish2'
+        ]
+    def process_request(self,request,spider):
+        request.headers['User-Agent'] = random.choice(self.user_agent)
+    def process_response(self,request,response,spider):
+        response.status=8888
+        return response
