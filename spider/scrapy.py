@@ -42,7 +42,7 @@ class RandomUserAgentMiddleware():
         response.status=8888
         return response
  
-##配置多个user-agent
+##配置多个user-agent(建议使用fake_useragent,在github搜索fake_useragent)
 1 在settings中配置以一个user-agent-list
 2 在middleware中写如下方法
 class RandomUserAgentMiddlware(object):
