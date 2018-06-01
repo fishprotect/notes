@@ -41,7 +41,23 @@ class RandomUserAgentMiddleware():
     def process_response(self,request,response,spider):
         response.status=8888
         return response
-      
+ 
+##配置多个user-agent
+1 在settings中配置以一个user-agent-list
+2 在middleware中写如下方法
+class RandomUserAgentMiddlware(object):
+  def __init__(self,crawler):
+    super(RandomUserAgentMiddlware,self).__init__()
+    self.user_agent_list = crawler.settings.get('user_agent_list',)
+    ##注意，user_agent_list可以从别的文件中设置，或者从别的组件中导入
+    ##不一定要在settings中
+    @classmethod
+    def from_crawler(cls,crawler):
+      return cls(crawler)
+    def process_request(self,request,spider):
+      request.header.setdefault('User-Agent',random(self.user_agent_list))
+        
+
       
       
       
