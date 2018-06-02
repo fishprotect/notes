@@ -58,7 +58,7 @@ class RandomUserAgentMiddlware(object):
       request.header.setdefault('User-Agent',random(self.user_agent_list))
     
  
-##配置ip代理，（github库  scrapy_proxies）
+##配置ip代理，（github库  scrapy_proxies,官方提供的scrapy_crawlera）
 #在middleware中的process_request()函数中，增加ip代理
 def process_request(self,request,spider):
   reques.meta['proxy'] = "http://80.80.80.80:8888"  #假设ip的代理为80.80.80.80:8888
