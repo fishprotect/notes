@@ -14,5 +14,7 @@
 2: $git branch -D <branch_name> #删除本地分支
 3: $git checkout <branch_name>  #切换分支
 4：$git merge --no-ff -m "add merge" <some_branch> #合并分支
-
+###区别use https 和 use ssh
+1: $git clone https://github.com/fishprotect/crawl_consumer_from_zhihu.git
+# 按上述克隆的代码，提交时需要输入用户名和密码（已经配置好SSH KEY的前提下）
 
