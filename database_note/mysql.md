@@ -3,6 +3,7 @@
 #root账号的密码：
 dongyuhong_fish_0938
 #免密码登录：
+#免密码登录账号：yuhongd
 在配置文件最后加上:skip-grant-tables
 然后需要重新启动mysql服务
 
@@ -16,4 +17,7 @@ dongyuhong_fish_0938
 >> flush privileges;
 #注：上述第一句命令中，%表示所有地址都可以登录
 
-
+#python3使用mysql
+$pip3 install pymysql
+#python2使用Mysql
+$pip install Python-MYSQL   #(更加熟悉的名字是MySQLdb)
