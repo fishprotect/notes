@@ -55,3 +55,32 @@ def make_average():
         series.append(new_value)
         total = sum(series)
         return total/len(series)
+
+# 生成器和迭代器
+## 区分 迭代器和可迭代的对象
+'''
+    迭代器的两个方法：
+    1 __iter__ :返回self 以便在使用该迭代器对象的地方使用迭代器
+    2 __next__ :返回下一个可用元素
+'''
+
+## 生成器，生成器是迭代器
+'''
+    1 调用生成器函数返回生成器，生成器生成或者产出值
+    如下实例：展示生成器的运行过程
+    >> def gen_ab():
+           print('start...')
+           yield 'a'
+           print('continue....')
+           yield 'b'
+           print('end')
+    ...
+    >> for c in gen_ab():
+           print('-->',c)
+    ...
+    start...
+    -->a
+    continue....
+    -->b
+    end
+'''
