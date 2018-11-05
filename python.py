@@ -106,3 +106,28 @@ def make_average():
     --->bbb
     end 
 '''
+# 制作生成器时，优先选用生成器函数
+# 方法一：实现生成器
+# 如下，为了构生成器而构建__iter__方法
+class A:
+    def __init__(self,begin,step,end):
+        self.begin = begin
+        self.step = step
+        self.end = end
+    def __iter__(self):
+        result = type(self.begin+self.end)(self.begin)
+        forever = self.end is None
+        while forever or result < self.end:
+            yield result
+            result = result+self.step
+# 方法二：实现生成器
+# 如下是：使用生成器函数 制造生成器
+# 生成器函数：在python函数的定义体中，有yield关键字，该函数就是生成器函数
+def B(begin,step,end=None):
+    result = type(begin+step)(begin)
+    forever = end is None
+    index = 0
+    while forever or result < end:
+        yield result
+        index += 1
+        result = begin + index*step
