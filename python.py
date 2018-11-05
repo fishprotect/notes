@@ -2,7 +2,7 @@
 1 注意导入包和当前文件夹重名
 eg:$ import requests时，如果该文件的名字是：requests.py,则就会出错。
     会出现，导入的文件中没有你要的方法或者对象
-
+    
 # 装饰器
 
 ### 方法一：
@@ -131,3 +131,16 @@ def B(begin,step,end=None):
         yield result
         index += 1
         result = begin + index*step
+
+'''
+    #深入分析iter函数
+    >>> def d6():
+          return rnadint(1,6)
+    ...
+    >>> d6_iter = iter(d6,1)    # 第二个参数 1 为哨符，是标记值，可调用的对象返回这个值时、
+                                # 触发迭代器，抛出StopIteration异常，而不产出哨符
+    # 如下函数，逐行处理文件，直到遇到空行或者到达文件末尾
+    with open('mydata.txt') as fp:
+        for line in iter(fp.readline,'\n'):
+            process_line(line) # process_line()函数是处理行的函数
+'''

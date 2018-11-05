@@ -1,16 +1,5 @@
-import re
-import reprlib
-
-text = 'Python is an easy to learn, powerful programming language. \
-    It has efficient high-level data structures \
-    and a simple but effective approach to object-oriented programming.\
-     Python’s elegant syntax and dynamic typing, \
-     together with its interpreted nature, \
-     make it an ideal language for scripting \
-     and rapid application development in many areas on most platforms'
-
-re_word = re.compile('\w+')
-word = re_word.findall(text)
-text1 = 'hello yuhongd'
-
-print(word)
+l = 10
+index = 0
+with open('python.py') as fp:
+    for x in fp.readlines():
+        print(x)
