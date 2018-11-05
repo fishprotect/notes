@@ -68,14 +68,14 @@ def make_average():
 '''
     1 调用生成器函数返回生成器，生成器生成或者产出值
     如下实例：展示生成器的运行过程
-    >> def gen_ab():
+    >>> def gen_ab():
            print('start...')
            yield 'a'
            print('continue....')
            yield 'b'
            print('end')
     ...
-    >> for c in gen_ab():
+    >>> for c in gen_ab():
            print('-->',c)
     ...
     start...
@@ -83,4 +83,26 @@ def make_average():
     continue....
     -->b
     end
+
+    2 列表推导和生成器表达式的比较
+      1)列表推导
+    >>> res1 = [x*3 for x in gen_ab()]  # res1 = ['--->aaa','--->bbb']
+    satrt...
+    continue....
+    end.
+    >>> for i in res1:
+            print(i)
+    ...
+    --->aaa
+    --->bbb
+      2）生成器表达式
+    >>> res2 = (x*3 for x in gen_ab()) # res2 =
+    >>> for i in res2:
+            print(i)
+    ...
+    start...
+    --->aaa
+    continue....
+    --->bbb
+    end 
 '''
