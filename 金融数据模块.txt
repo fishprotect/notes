@@ -1,0 +1,19 @@
+金融数据模块获取股票方法：DataReader()
+#使用的模块为：pandas_datareader
+#https://pypi.org/project/pandas-datareader/
+#安装方法：pip3 install pandas_datareader
+
+import pandas as pd
+import pandas_datareader.data as web
+import datetime
+# DataReader(),
+# 股票代码+沪：SS or 深（创业）：SZ，获取data的网站，开始时间，结束时间
+
+df_csv = web.DataReader('601233.SS','yahoo',datetime.datetime(2018,11,15),datetime.date.today())
+print(df_csv)
+df_csv.to_csv('601233.csv')
+# print(df_csv.shape)
+# print(df_csv.describe())
+# print(df_csv.info())
+# print(df_csv.isnull())
+# print(df_csv.isnull().T.any())
