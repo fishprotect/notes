@@ -16,7 +16,7 @@ def create(node,name):
     if val == '#':
         node = None
     else:
-        node = Node(v=int(val))
+        node = Node(v=int(val))     # 每次插入一个节点，必须新建一个对象，在c/c++中，则必须申请一个struct
         node.left = create(node,val+' left')
         node.right = create(node,val+' right')
     return node
@@ -83,15 +83,19 @@ def bst_delete(node,value):
 if __name__ == "__main__":
     node = None
     root = create(node,'root') #创建一个树
-    max_node = bst_max(root)
     # bst_search = bst_search(root,18)
+    # 查找6的pred
     bst_pred = bst_pred(root,6)
+    # 插入值1，插入值100，13
     bst_insert(root,1)
     bst_insert(root,100)
     bst_insert(root,13)
+    # 查找最小值和最大值
     min_node = bst_min(root)
     max_node = bst_max(root)
+    # 搜索13
     bst_search = bst_search(root,13)
+    # print结果
     print('min:',min_node)
     print('max:',max_node)
     print('search:',bst_search)
