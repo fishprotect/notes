@@ -76,8 +76,44 @@ def bst_insert(node,value):
             node.left = insert_node
         else:
             bst_insert(node.left,value)
-
+# delete有三种情况
+'''
+    case1:要删除的node没有子元素，该node是一个leaf
+    case2:套删除的node有一个叶子，则直接用他的子元素代替他
+    case3:要删除的node有两个叶子，用一个子元素代替他（一般我们用left leaf代替）
+'''
 def bst_delete(node,value):
+
+    # 定义一个函数，含有case1，case2，case3
+    def delete_node(node):
+        # case1
+        if node.left == None and node.right == None:
+            node = None
+        # case2
+        elif node.left == None and node.rigth != None:
+            node = node.right
+        elif node.left != None and node.right != None:
+            node = node.left
+        # case3
+        else:
+            new_node = node.right
+            node = node.left
+            node.right = new_node
+    # 在tree中查找含有该值的node
+    if node.val == value:
+        delete_node(node)
+        print('delete the value %s' % value)
+    elif value > node.val:
+        if node.right != None:
+            bst_delete(node.right,value)
+        else:
+            print('#')
+    elif value < node.val:
+        if node.left != None:
+            bst_delete(node.left,value)
+        else:
+            print('#')
+    
 
 
 if __name__ == "__main__":
@@ -94,9 +130,12 @@ if __name__ == "__main__":
     min_node = bst_min(root)
     max_node = bst_max(root)
     # 搜索13
-    bst_search = bst_search(root,13)
+    bst_search13 = bst_search(root,13)
     # print结果
     print('min:',min_node)
     print('max:',max_node)
-    print('search:',bst_search)
+    print('search:',bst_search13)
     print('bst_pred:',bst_pred)
+    bst_delete(root,13)
+    bst_searchn13 = bst_search(root,13)
+    print(bst_searchn13)
