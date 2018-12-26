@@ -16,5 +16,5 @@ def s(string):
         l.append(s)
     print(l)
 if __name__ == "__main__":
-    s('abc')
+    s('abce')
 
